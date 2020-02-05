@@ -28,3 +28,12 @@ print("GRADES:", type(grades))
 
 
 print(grades.head())
+
+avg_grade = grades["final_grade"].mean()
+print(avg_grade)
+
+for index, row in grades.iterrows():
+    print(index)
+    print(row["final_grade"])
+    print ("---")
+    
