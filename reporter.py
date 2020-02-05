@@ -1,4 +1,5 @@
 # reporter.py
+import os
 import pandas
 
 def to_usd(my_price):
@@ -15,13 +16,15 @@ print("READING GRADEBOOK CSV FILE...")
 
 
 #if csv file in same directory as this python script, csv filepath = name of the file
+#csv_filepath = "gradebook2.csv"
 
-csv_filepath = "gradebook2.csv"
-
+#if the csv file is in the data directory, dont do "data/gradebook.csv"
+csv_filepath = os.path.join(os.path.dirname(__file__), "data", "gradebook.csv")
+print(os.path.abspath(csv_filepath))
 
 grades = pandas.read_csv(csv_filepath)
 print("GRADES:", type(grades))
-print(dir(grades))
+#print(dir(grades))
 
 
 print(grades.head())
